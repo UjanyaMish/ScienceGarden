@@ -18,10 +18,12 @@
 .top-row {
     height: 3.5rem;
     background-color: rgba(0,0,0,0.4);
+    position: relative;
 }
 
 .navbar-brand {
     font-size: 1.1rem;
+    margin-left: 1rem;
 }
 
 .bi {
@@ -60,7 +62,7 @@
     }
 
     .nav-item ::deep .nav-link {
-        color: #d7d7d7;
+        color: #050300;
         background: none;
         border: none;
         border-radius: 4px;
@@ -73,16 +75,23 @@
 
 .nav-item ::deep a.active {
     background-color: rgba(255,255,255,0.37);
-    color: white;
+    color: #6e5d45;
 }
 
 .nav-item ::deep .nav-link:hover {
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: #6e5d45;
 }
 
 .nav-scrollable {
     display: none;
+    position: fixed;
+    right: 0;
+    top: 3.5rem;
+    bottom: 0;
+    width: 250px;
+    z-index: 1000;
+    overflow-y: auto;
 }
 
 .navbar-toggler:checked ~ .nav-scrollable {
@@ -97,7 +106,10 @@
     .nav-scrollable {
         /* Never collapse the sidebar for wide screens */
         display: block;
-
+        position: sticky;
+        right: 0;
+        left: auto;
+        width: 250px;
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
