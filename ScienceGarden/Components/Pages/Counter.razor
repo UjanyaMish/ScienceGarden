@@ -1,20 +1,57 @@
 ﻿@page "/counter"
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedSessionStorage protectedSessionStore
 @rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current count №1: @currentCount1</p>
+<p role="status">Current count №2: @currentCount2</p>
+<p role="status">Current count №3: @currentCount3</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    private Int128? currentCount1 = null;
+    private Int128? currentCount2 = null;
+    private Int128? currentCount3 = null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            try
+            {
+                currentCount1 = 0;
+                var sesCounter2 = await protectedSessionStore.GetAsync<Int128>("sesCounter2");
+                currentCount2 = sesCounter2.Success ? sesCounter2.Value : 0;
+                var sesCounter3 = await protectedSessionStore.GetAsync<Int128>("sesCounter3");
+                currentCount3 = sesCounter3.Success ? sesCounter3.Value : 0;
+                StateHasChanged();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+    }
 
     private void IncrementCount()
     {
-        currentCount++;
-    }
+        if (currentCount1 is null)
+            currentCount1 = 0;
+        else
+            currentCount1++;
+        if (currentCount2 is null)
+            currentCount2 = 0;
+        else
+            currentCount2++;
+        if (currentCount3 is null)
+            currentCount3 = 0;
+        else
+            currentCount3++;
 
+        protectedSessionStore.SetAsync("sesCounter2", currentCount2);
+        protectedSessionStore.SetAsync("sesCounter3", currentCount3);
+    }
 }
