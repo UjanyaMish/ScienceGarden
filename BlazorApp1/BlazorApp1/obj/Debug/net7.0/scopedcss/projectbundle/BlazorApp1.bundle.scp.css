@@ -1,0 +1,213 @@
+/* _content/BlazorApp1/Pages/RegistrationWindow.razor.rz.scp.css */
+
+.login-background[b-izha4scva8] {
+    background: none;
+    position: relative;
+    width: 500px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Добавлено, чтобы элементы шли вертикально */
+}
+
+.background-image[b-izha4scva8] {
+    position: absolute;
+    top: 54%;
+    left: 54%;
+    max-width: 62%;
+    max-height: 62%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: contain;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+/* Контейнер формы */
+.login-container[b-izha4scva8] {
+    position: relative;
+    z-index: 1;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+    .login-container h2[b-izha4scva8] {
+        font-size: 30px;
+        color: #8B4513;
+        margin-bottom: 8px;
+    }
+
+    /* Поля ввода */
+    .login-container input[b-izha4scva8] {
+        width: 100%;
+        padding: 10px;
+        font-size: 22px;
+        font-family: 'Grenze Gotisch', cursive;
+        border: 2px solid #8B4513;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #8B4513;
+    }
+
+/* Контейнер для кнопок */
+.button-container[b-izha4scva8] {
+    display: flex;
+    justify-content: space-between; /* Разделяет кнопки по обеим сторонам */
+    width: 100%; /* Чтобы кнопки растягивались на всю ширину контейнера */
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 10px; /* Добавим отступ сверху для выравнивания */
+}
+
+/* Кнопки */
+.login-container button[b-izha4scva8] {
+    padding: 12px 30px;
+    font-size: 20px;
+    font-family: 'Grenze Gotisch', cursive;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 48%; /* Чтобы кнопки не выходили за пределы */
+}
+
+    .login-container button:hover[b-izha4scva8] {
+        background-color: #5a2e1d;
+    }
+
+/* Затемнение фона */
+.modal-overlay[b-izha4scva8] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+/* Модальное окно */
+.modal[b-izha4scva8] {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #fffaf0, #f5f5dc);
+    padding: 30px;
+    border-radius: 16px;
+    width: 360px;
+    height: 420px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    border: 2px solid #8B4513;
+}
+
+    .modal.show[b-izha4scva8] {
+        display: block;
+    }
+
+/* Заголовок */
+.modal-title[b-izha4scva8] {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-family: 'Grenze Gotisch', cursive;
+}
+
+/* Внутренний контейнер */
+.modal-form[b-izha4scva8] {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+    /* Инпуты */
+    .modal-form input[b-izha4scva8] {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        border: 2px solid #8B4513;
+        border-radius: 10px;
+        background-color: #fffaf0;
+        color: #5a2e1d;
+        font-family: 'Grenze Gotisch', cursive;
+    }
+
+/* Контейнер кнопок */
+.button-container[b-izha4scva8] {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+    /* Кнопки */
+    .button-container button[b-izha4scva8] {
+        flex: 1;
+        padding: 12px;
+        font-size: 18px;
+        font-family: 'Grenze Gotisch', cursive;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+/* Зарегистрироваться */
+.primary-btn[b-izha4scva8] {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+}
+
+    .primary-btn:hover[b-izha4scva8] {
+        background-color: #5a2e1d;
+    }
+
+/* Назад */
+.back-btn[b-izha4scva8] {
+    background-color: transparent;
+    color: #8B4513;
+    border: 2px solid #8B4513;
+}
+
+    .back-btn:hover[b-izha4scva8] {
+        background-color: #f8f8f8;
+    }
+
+/* Кнопка закрытия */
+.modal .close-btn[b-izha4scva8] {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #8B4513;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 🔁 Адаптивность */
+@media (max-width: 500px) {
+    .modal[b-izha4scva8] {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .button-container[b-izha4scva8] {
+        flex-direction: column;
+    }
+
+        .button-container button[b-izha4scva8] {
+            width: 100%;
+        }
+}

@@ -1,0 +1,112 @@
+﻿@using BlazorApp1.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Db
+
+@code {
+    private bool isRegistering = false;
+    private string debug = "";
+    private string login;
+    private string password;
+
+    private string regUsername;
+    private string regEmail;
+    private string regPassword;
+
+    private void StartRegistration()
+    {
+        isRegistering = true;
+    }
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+
+    private void  SubmitLogin()
+    {
+
+        Navigation.NavigateTo("/main");
+    }
+
+
+    private async Task SubmitRegistration()
+    {
+        // if (string.IsNullOrWhiteSpace(regUsername) || string.IsNullOrWhiteSpace(regPassword))
+        //     return;
+
+        // try
+        // {
+        //     // Первая операция — отдельно
+        //     var usersCount = await Db.Users.CountAsync();
+        //     Console.WriteLine($"✔ Пользователей в БД: {usersCount}");
+
+        //     // Вторая операция — после завершения первой
+        //     var exists = await Db.Users.AnyAsync(u => u.Username == regUsername);
+        //     if (exists)
+        //     {
+        //         Console.WriteLine("❗ Такой пользователь уже существует");
+        //         return;
+        //     }
+
+        //     var newUser = new User
+        //         {
+        //             Username = regUsername,
+        //             PasswordHash = regPassword
+        //         };
+
+        //     Db.Users.Add(newUser);
+        //     await Db.SaveChangesAsync();
+
+        //     Console.WriteLine("✅ Регистрация прошла успешно");
+
+        //     isRegistering = false;
+        //     Navigation.NavigateTo("/main");
+        // }
+        // catch (Exception ex)
+        // {
+        //     Console.WriteLine($"❌ Ошибка при регистрации: {ex.Message}");
+        // }
+        isRegistering = false;
+    }
+
+}
+
+
+
+@if (!isRegistering)
+{
+
+    <div class="login-container">
+        <h2>Увядай, если не знаешь</h2>
+        <input @bind="login" placeholder="Логин" />
+        <input @bind="password" type="password" placeholder="Пароль" />
+        <div class="button-container">
+            <button @onclick="SubmitLogin">Войти</button>
+            <button @onclick="StartRegistration">Регистрация</button>
+        </div>
+    </div>
+    <div class="background-image-container">
+        <img src="images/menu.png" class="background-image" />
+    </div>
+}
+else
+{
+    <pre style="color:red">@debug</pre>
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal show">
+        <button class="close-btn" @onclick="() => isRegistering = false">×</button>
+
+        <h3 class="modal-title">Регистрация</h3>
+
+        <div class="modal-form">
+            <input @bind="regUsername" placeholder="Имя пользователя" />
+            <input @bind="regEmail" placeholder="Email" />
+            <input @bind="regPassword" type="password" placeholder="Пароль" />
+
+            <div class="button-container">
+                <button class="primary-btn" @onclick="SubmitRegistration">Зарегистрироваться</button>
+                <button class="back-btn" @onclick="() => isRegistering = false">Назад</button>
+            </div>
+        </div>
+    </div>
+}
+
