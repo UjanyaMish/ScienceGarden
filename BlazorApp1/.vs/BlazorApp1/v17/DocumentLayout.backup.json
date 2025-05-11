@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\hydan\\source\\repos\\blazorapp1\\blazorapp1\\pages\\game.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\pages\\game.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\hydan\\source\\repos\\blazorapp1\\blazorapp1\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\hydan\\source\\repos\\blazorapp1\\blazorapp1\\pages\\registrationwindow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\pages\\registrationwindow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\hydan\\source\\repos\\blazorapp1\\blazorapp1\\data\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9DB1444-6FA4-4F8C-8012-01B5CCBA7EA2}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\data\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserSession.cs",
+              "DocumentMoniker": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Data\\UserSession.cs",
+              "RelativeDocumentMoniker": "BlazorApp1\\Data\\UserSession.cs",
+              "ToolTip": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Data\\UserSession.cs",
+              "RelativeToolTip": "BlazorApp1\\Data\\UserSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:45:10.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistrationWindow.razor",
+              "DocumentMoniker": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\RegistrationWindow.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Pages\\RegistrationWindow.razor",
+              "ToolTip": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\RegistrationWindow.razor",
+              "RelativeToolTip": "BlazorApp1\\Pages\\RegistrationWindow.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-11T15:17:27.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.razor",
+              "DocumentMoniker": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\Game.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Pages\\Game.razor",
+              "ToolTip": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\Game.razor",
+              "RelativeToolTip": "BlazorApp1\\Pages\\Game.razor",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-11T12:41:51.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.razor.css",
+              "DocumentMoniker": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\Game.razor.css",
+              "RelativeDocumentMoniker": "BlazorApp1\\Pages\\Game.razor.css",
+              "ToolTip": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\Pages\\Game.razor.css",
+              "RelativeToolTip": "BlazorApp1\\Pages\\Game.razor.css",
+              "ViewState": "AgIAADUAAAAAAAAAAAAkwF8AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-11T12:54:10.086Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

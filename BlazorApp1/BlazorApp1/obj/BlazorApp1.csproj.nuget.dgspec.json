@@ -50,13 +50,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "MySql.Data": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.1.0, )"
             },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "System.Text.Json": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.2, )"
             }
           },
           "imports": [

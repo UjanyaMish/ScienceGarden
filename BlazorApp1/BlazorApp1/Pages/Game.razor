@@ -1,0 +1,122 @@
+﻿@page "/main"
+@using BlazorApp1.Data
+@inject NavigationManager Navigation
+
+
+@code {
+    bool showSettings = false;
+    bool showShop = false;
+    bool showMyFlowers = false;
+
+    void OpenSettings()
+    {
+        showSettings = true;
+        showShop = false;
+        showMyFlowers = false;
+        StateHasChanged();
+    }
+
+    void OpenShop()
+    {
+        showSettings = false;
+        showShop = true;
+        showMyFlowers = false;
+        StateHasChanged();
+    }
+
+    void OpenMyFlowers()
+    {
+        showSettings = false;
+        showShop = false;
+        showMyFlowers = true;
+        StateHasChanged();
+    }
+
+    void CloseModals()
+    {
+        showSettings = false;
+        showShop = false;
+        showMyFlowers = false;
+        StateHasChanged();
+    }
+
+    void GoToLogin()
+    {
+        UserSession.CurrentUser = null;
+        Navigation.NavigateTo("/registration", true);
+    }
+}
+
+<div class="game-wrapper">
+    <div class="game-container">
+        <div class="shelf-container">
+            <div class="shelf">
+                <div class="flower-slot"></div>
+                <div class="flower-slot"></div>
+                <div class="flower-slot"></div>
+            </div>
+            <div class="shelf">
+                <div class="flower-slot"></div>
+                <div class="flower-slot"></div>
+                <div class="flower-slot"></div>
+            </div>
+        </div>
+        <div class="money-container">
+            <img class="money-icon" src="images/icons/money.png" />
+            <div class="money-amount">123</div>
+        </div>
+
+        <div class="slots-panel">
+            <div class="slot-button" @onclick="OpenMyFlowers">
+                <img class="slot-icon" src="images/icons/my_flowers.png" />
+            </div>
+            <div class="slot-button" @onclick="OpenShop">
+                <img class="slot-icon" src="images/icons/shop.png" />
+            </div>
+            <div class="slot-button" @onclick="OpenSettings">
+                <img class="slot-icon" src="images/icons/settings.png" />
+            </div>
+@*             <div class="slot-button" @onclick="GoToLogin">
+                <img class="slot-icon" src="images/icons/home.png" />
+            </div> *@
+        </div>
+    </div>
+
+<!-- Модальные окна -->
+@if (showSettings || showShop || showMyFlowers)
+{
+    <div class="modal-overlay1"></div>
+}
+
+@if (showSettings)
+{
+    <div class="modal1">
+        <h3>Настройки</h3>
+        <label>Язык: <select><option>Русский</option><option>English</option></select></label><br />
+        <label>Громкость музыки: <input type="range" min="0" max="100" /></label><br />
+        <label>Громкость эффектов: <input type="range" min="0" max="100" /></label><br />
+        <button @onclick="GoToLogin">Выйти</button>
+        <button @onclick="CloseModals">Закрыть</button>
+    </div>
+}
+
+
+        @if (showShop)
+        {
+            <div class="modal1">
+                <h3>Магазин</h3>
+                <p>Здесь будут товары.</p>
+                <button @onclick="CloseModals">Закрыть</button>
+            </div>
+        }
+
+        @if (showMyFlowers)
+        {
+            <div class="modal1">
+                <h3>Мои цветы</h3>
+                <p>Здесь будет список цветов.</p>
+                <button @onclick="CloseModals">Закрыть</button>
+            </div>
+        }
+
+</div>

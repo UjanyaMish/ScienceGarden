@@ -1,6 +1,7 @@
-﻿@using BlazorApp1.Data
-@using Microsoft.EntityFrameworkCore
-@inject AppDbContext Db
+﻿@page "/registration"
+@using MySql.Data.MySqlClient
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
 
 @code {
     private bool isRegistering = false;
@@ -16,58 +17,82 @@
     {
         isRegistering = true;
     }
-    [Inject]
-    private NavigationManager Navigation { get; set; }
 
-    private void  SubmitLogin()
+    private void SubmitLogin()
     {
-
         Navigation.NavigateTo("/main");
     }
-
-
+    private static string HashPassword(string password)
+    {
+        using var sha256 = System.Security.Cryptography.SHA256.Create();
+        var bytes = System.Text.Encoding.UTF8.GetBytes(password);
+        var hash = sha256.ComputeHash(bytes);
+        return Convert.ToBase64String(hash);
+    }
     private async Task SubmitRegistration()
     {
-        // if (string.IsNullOrWhiteSpace(regUsername) || string.IsNullOrWhiteSpace(regPassword))
-        //     return;
+        if (string.IsNullOrWhiteSpace(regUsername) || string.IsNullOrWhiteSpace(regPassword))
+            return;
 
-        // try
-        // {
-        //     // Первая операция — отдельно
-        //     var usersCount = await Db.Users.CountAsync();
-        //     Console.WriteLine($"✔ Пользователей в БД: {usersCount}");
+        try
+        {
+            string connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+            using var conn = new MySqlConnection(connStr);
+            await conn.OpenAsync();
 
-        //     // Вторая операция — после завершения первой
-        //     var exists = await Db.Users.AnyAsync(u => u.Username == regUsername);
-        //     if (exists)
-        //     {
-        //         Console.WriteLine("❗ Такой пользователь уже существует");
-        //         return;
-        //     }
+            // Проверка существующего имени
+            string checkQuery = "SELECT COUNT(*) FROM users WHERE username = @username";
+            using var checkCmd = new MySqlCommand(checkQuery, conn);
+            checkCmd.Parameters.AddWithValue("@username", regUsername);
+            var exists = Convert.ToInt32(await checkCmd.ExecuteScalarAsync()) > 0;
+            if (exists)
+            {
+                debug = "❗ Такой пользователь уже существует";
+                return;
+            }
 
-        //     var newUser = new User
-        //         {
-        //             Username = regUsername,
-        //             PasswordHash = regPassword
-        //         };
+            // Хэширование пароля
+            var passwordHash = HashPassword(regPassword);
 
-        //     Db.Users.Add(newUser);
-        //     await Db.SaveChangesAsync();
+            // Вставка пользователя
+            string insertUserQuery = "INSERT INTO users (username, email, password_hash) VALUES (@username, @email, @password)";
+            using var insertCmd = new MySqlCommand(insertUserQuery, conn);
+            insertCmd.Parameters.AddWithValue("@username", regUsername);
+            insertCmd.Parameters.AddWithValue("@email", regEmail);
+            insertCmd.Parameters.AddWithValue("@password", passwordHash);
+            await insertCmd.ExecuteNonQueryAsync();
 
-        //     Console.WriteLine("✅ Регистрация прошла успешно");
+            // Получаем ID нового пользователя
+            var userIdCmd = new MySqlCommand("SELECT LAST_INSERT_ID();", conn);
+            var userId = Convert.ToInt32(await userIdCmd.ExecuteScalarAsync());
 
-        //     isRegistering = false;
-        //     Navigation.NavigateTo("/main");
-        // }
-        // catch (Exception ex)
-        // {
-        //     Console.WriteLine($"❌ Ошибка при регистрации: {ex.Message}");
-        // }
+            // Генерация токена
+            var token = Guid.NewGuid().ToString();
+            var expires = DateTime.UtcNow.AddDays(7); // 7 дней
+
+            // Вставка токена
+            var insertTokenCmd = new MySqlCommand("INSERT INTO authtokens (user_id, token, expires_at) VALUES (@uid, @token, @exp)", conn);
+            insertTokenCmd.Parameters.AddWithValue("@uid", userId);
+            insertTokenCmd.Parameters.AddWithValue("@token", token);
+            insertTokenCmd.Parameters.AddWithValue("@exp", expires);
+            await insertTokenCmd.ExecuteNonQueryAsync();
+
+            // Сохраняем токен в localStorage (через JS позже)
+            await JS.InvokeVoidAsync("localStorage.setItem", "auth_token", token);
+
+            debug = "✅ Регистрация завершена";
+            isRegistering = false;
+            Navigation.NavigateTo("/main");
+        }
+        catch (Exception ex)
+        {
+            debug = $"❌ Ошибка: {ex.Message}";
+        }
+
         isRegistering = false;
     }
 
 }
-
 
 
 @if (!isRegistering)
@@ -109,4 +134,3 @@ else
         </div>
     </div>
 }
-
