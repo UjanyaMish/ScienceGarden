@@ -10,7 +10,6 @@
 		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="wwwroot\images\flowers\" />
 	  <Folder Include="wwwroot\images\icons\" />
 	</ItemGroup>
 

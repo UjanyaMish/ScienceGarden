@@ -1,9 +1,112 @@
 ﻿@page "/main"
 @using BlazorApp1.Data
+@using MySql.Data.MySqlClient
+@using System.Diagnostics;
 @inject NavigationManager Navigation
 
 
 @code {
+    private List<Flower> shopFlowers = new();
+    async void OpenShop()
+    {
+        showSettings = false;
+        showShop = true;
+        showMyFlowers = false;
+
+        await LoadShopFlowers(); // теперь await
+        StateHasChanged();
+    }
+
+    private async Task LoadShopFlowers()
+    {
+        shopFlowers.Clear();
+        var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+        using var conn = new MySqlConnection(connStr);
+        await conn.OpenAsync();
+
+        var cmd = new MySqlCommand("SELECT id, name, code, price_buy, price_sell FROM flowertypes", conn);
+        using var reader = await cmd.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
+        {
+            shopFlowers.Add(new Flower
+                {
+                    TypeId = reader.GetInt32(0),
+                    DisplayName = reader.GetString(1),
+                    CodeName = reader.GetString(2),
+                    PriceBuy = reader.GetInt32(3),
+                    PriceSell = reader.GetInt32(4),
+                    Hp = 15,
+                    MaxHp = 15
+                });
+        }
+    }
+
+    private async void BuyFlower(Flower flower)
+    {
+        if (UserSession.CurrentUser.Coins < flower.PriceBuy)
+            return;
+
+        var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+        using var conn = new MySqlConnection(connStr);
+        await conn.OpenAsync();
+
+        // Найдём первый свободный слот (0-5)
+        var usedSlots = UserSession.CurrentUser.Flowers.Select(f => f.Slot).ToHashSet();
+        int freeSlot = Enumerable.Range(0, 6).FirstOrDefault(i => !usedSlots.Contains(i));
+        if (usedSlots.Count >= 6)
+            return;
+
+        // Добавить цветок в БД
+        var insertCmd = new MySqlCommand("INSERT INTO flowers (user_id, type_id, hp, pot_slot) VALUES (@uid, @type, @hp, @slot)", conn);
+        insertCmd.Parameters.AddWithValue("@uid", UserSession.CurrentUser.Id);
+        insertCmd.Parameters.AddWithValue("@type", flower.TypeId);
+        insertCmd.Parameters.AddWithValue("@hp", 15);
+        insertCmd.Parameters.AddWithValue("@slot", freeSlot);
+        await insertCmd.ExecuteNonQueryAsync();
+
+        // Обновить монеты в БД
+        UserSession.CurrentUser.Coins -= flower.PriceBuy;
+        var updateCoins = new MySqlCommand("UPDATE users SET coins = @coins WHERE id = @id", conn);
+        updateCoins.Parameters.AddWithValue("@coins", UserSession.CurrentUser.Coins);
+        updateCoins.Parameters.AddWithValue("@id", UserSession.CurrentUser.Id);
+        await updateCoins.ExecuteNonQueryAsync();
+
+        // Добавить в список в C#
+        UserSession.CurrentUser.Flowers.Add(new Flower
+            {
+                TypeId = flower.TypeId,
+                DisplayName = flower.DisplayName,
+                CodeName = flower.CodeName,
+                PriceBuy = flower.PriceBuy,
+                PriceSell = flower.PriceSell,
+                Hp = 9,
+                MaxHp = 15,
+                Slot = freeSlot
+            });
+
+        StateHasChanged();
+    }
+
+    private static readonly string[] PotImages = new[]
+    {
+        "cream_box.png",
+        "cream_box.png",
+        "cream_box.png",
+        "cream_box.png",
+        "cream_box.png",
+        "cream_box.png",
+    };
+    private string GetFlowerImage(int slot)
+    {
+        var flower = UserSession.CurrentUser.Flowers.FirstOrDefault(f => f.Slot == slot);
+        return flower != null
+            ? flower.GetStateImage()
+            : "/images/flowers/empty.png"; // Заглушка, если цветка нет
+    }
+    private string GetPotImage(int index)
+    {
+        return $"/images/box/{PotImages[index % PotImages.Length]}";
+    }
     bool showSettings = false;
     bool showShop = false;
     bool showMyFlowers = false;
@@ -12,14 +115,6 @@
     {
         showSettings = true;
         showShop = false;
-        showMyFlowers = false;
-        StateHasChanged();
-    }
-
-    void OpenShop()
-    {
-        showSettings = false;
-        showShop = true;
         showMyFlowers = false;
         StateHasChanged();
     }
@@ -45,25 +140,379 @@
         UserSession.CurrentUser = null;
         Navigation.NavigateTo("/registration", true);
     }
+    private async void SellFlower(Flower flower, int price)
+    {
+        var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+        using var conn = new MySqlConnection(connStr);
+        await conn.OpenAsync();
+
+        // 1. Удалить цветок из таблицы
+        var deleteCmd = new MySqlCommand("DELETE FROM flowers WHERE user_id = @uid AND type_id = @type AND hp = @hp AND pot_slot = @slot LIMIT 1", conn);
+        deleteCmd.Parameters.AddWithValue("@uid", UserSession.CurrentUser.Id);
+        deleteCmd.Parameters.AddWithValue("@type", flower.TypeId);
+        deleteCmd.Parameters.AddWithValue("@hp", flower.Hp);
+        deleteCmd.Parameters.AddWithValue("@slot", flower.Slot);
+        await deleteCmd.ExecuteNonQueryAsync();
+
+        // 2. Обновить количество монет в БД
+        UserSession.CurrentUser.Coins += price;
+        var updateCoins = new MySqlCommand("UPDATE users SET coins = @coins WHERE id = @id", conn);
+        updateCoins.Parameters.AddWithValue("@coins", UserSession.CurrentUser.Coins);
+        updateCoins.Parameters.AddWithValue("@id", UserSession.CurrentUser.Id);
+        await updateCoins.ExecuteNonQueryAsync();
+
+        // 3. Удалить из C#
+        UserSession.CurrentUser.Flowers.Remove(flower);
+
+        StateHasChanged();
+    }
+
+    private void ThrowOutFlower(Flower flower)
+    {
+        UserSession.CurrentUser.Flowers.Remove(flower);
+        // TODO: удалить цветок из БД
+        StateHasChanged();
+    }
+
+
+    private Dictionary<int, QuestionWithAnswers?> activeQuestions = new(); // слот => вопрос или null
+    private int? currentQuestionSlot = null;
+    private int? selectedAnswerId = null;
+    private System.Timers.Timer questionTimer;
+    private HashSet<int> validTypeIds = new();
+
+    public class QuestionWithAnswers
+    {
+        public int Id { get; set; }
+        public string Content { get; set; } = string.Empty;
+        public List<Answer> Answers { get; set; } = new();
+    }
+
+    public class Answer
+    {
+        public int Id { get; set; }
+        public string Content { get; set; } = string.Empty;
+        public bool IsCorrect { get; set; }
+    }
+
+    protected override async void OnInitialized()
+    {
+        //await LoadValidTypeIds();
+
+        //questionTimer = new System.Timers.Timer(1000); // стартовая задержка
+        // questionTimer.Elapsed += async (s, e) =>
+        // {
+        //     if (activeQuestions.Count >= 2)
+        //     {
+        //         questionTimer.Interval = 4000; // медленно, если 2+ активных
+        //         return;
+        //     }
+        //     else if (activeQuestions.Count == 1)
+        //     {
+        //         questionTimer.Interval = 2000; // средняя скорость
+        //     }
+        //     else
+        //     {
+        //         questionTimer.Interval = 1000; // быстро, если нет вопросов
+        //     }
+        //    await AskNextQuestion();
+        //     
+        // };
+
+        //questionTimer.AutoReset = true;
+        //questionTimer.Start();
+        await LoadValidTypeIds();
+
+        questionTimer = new System.Timers.Timer(1000); // задаёт раз в 1 секунду
+        questionTimer.Elapsed += async (s, e) =>
+        {
+            await AskNextQuestion();
+        };
+        questionTimer.AutoReset = true;
+        questionTimer.Start();
+
+        await AskNextQuestion(); // первый вопрос сразу
+
+    }
+
+    private async Task LoadValidTypeIds()
+    {
+        try
+        {
+            var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+            using var conn = new MySqlConnection(connStr);
+            await conn.OpenAsync();
+
+            var cmd = new MySqlCommand("SELECT DISTINCT q.flowertype_id FROM questions q JOIN answers a ON q.id = a.question_id", conn);
+            using var reader = await cmd.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
+            {
+                validTypeIds.Add(reader.GetInt32(0));
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"[LoadValidTypeIds] ⚠️ Exception: {ex.Message}");
+        }
+    }
+
+    private async Task AskNextQuestion()
+    {
+        try
+        {
+            var candidates = UserSession.CurrentUser.Flowers
+                .Where(f => !f.IsDead && !activeQuestions.ContainsKey(f.Slot) && validTypeIds.Contains(f.TypeId))
+                .Select(f => f.Slot)
+                .ToList();
+
+            if (candidates.Count == 0)
+            {
+                Debug.WriteLine("❌ No candidates found for question");
+                return;
+            }
+
+            var random = new Random();
+            var slot = candidates[random.Next(candidates.Count)];
+
+            await InvokeAsync(async () =>
+            {
+                await LoadQuestionForSlot(slot);
+                StateHasChanged();
+            });
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"[AskNextQuestion] ⚠️ Exception: {ex.Message}");
+        }
+    }
+
+    private async Task LoadQuestionForSlot(int slot)
+    {
+        try
+        {
+            var flower = UserSession.CurrentUser.Flowers.FirstOrDefault(f => f.Slot == slot);
+            if (flower == null || flower.IsDead || activeQuestions.ContainsKey(slot))
+            {
+                Debug.WriteLine($"⛔ Skipping slot {slot}: null or dead or already active");
+                return;
+            }
+
+            Debug.WriteLine($"🌸 Flower slot {flower.Slot}: {flower.DisplayName} (CodeName: {flower.CodeName}, HP: {flower.Hp}/15)");
+
+            var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+            using var conn = new MySqlConnection(connStr);
+            await conn.OpenAsync();
+
+            var qCmd = new MySqlCommand("SELECT id, content FROM questions WHERE flowertype_id = @ftype ORDER BY RAND() LIMIT 1", conn);
+            qCmd.Parameters.AddWithValue("@ftype", flower.TypeId);
+
+            using var qReader = await qCmd.ExecuteReaderAsync();
+            if (!await qReader.ReadAsync())
+            {
+                Debug.WriteLine($"❌ No question found for flower type {flower.TypeId}, skipping slot {slot}");
+                activeQuestions[slot] = null;
+                return;
+            }
+
+            var question = new QuestionWithAnswers
+                {
+                    Id = qReader.GetInt32(0),
+                    Content = qReader.GetString(1),
+                    Answers = new List<Answer>()
+                };
+            var qid = question.Id;
+            await qReader.CloseAsync();
+
+            var aCmd = new MySqlCommand("SELECT id, content, is_correct FROM answers WHERE question_id = @qid", conn);
+            aCmd.Parameters.AddWithValue("@qid", qid);
+            using var aReader = await aCmd.ExecuteReaderAsync();
+            while (await aReader.ReadAsync())
+            {
+                question.Answers.Add(new Answer
+                    {
+                        Id = aReader.GetInt32(0),
+                        Content = aReader.GetString(1),
+                        IsCorrect = aReader.GetBoolean(2)
+                    });
+            }
+
+            if (question.Answers.Count == 0)
+            {
+                Debug.WriteLine($"❌ Question found but no answers: {question.Content}");
+                activeQuestions[slot] = null;
+                return;
+            }
+
+            Debug.WriteLine($"✅ Question loaded for slot {slot}: '{question.Content}' with {question.Answers.Count} answers");
+            activeQuestions[slot] = question;
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"[LoadQuestionForSlot] ⚠️ Exception: {ex.Message}");
+        }
+    }
+
+
+private void OpenQuestionModal(int slot)
+    {
+        Debug.WriteLine($"📥 Opening question modal for slot {slot}");
+
+        var flower = UserSession.CurrentUser.Flowers.FirstOrDefault(f => f.Slot == slot);
+        if (flower == null || flower.IsDead)
+        {
+            Debug.WriteLine($"⛔ Flower is dead or missing, cannot open modal for slot {slot}");
+            return;
+        }
+
+        if (!activeQuestions.TryGetValue(slot, out var question) || question == null)
+        {
+            Debug.WriteLine($"⚠️ Cannot open modal, question is null for slot {slot}");
+            return;
+        }
+
+        currentQuestionSlot = slot;
+        selectedAnswerId = null;
+        StateHasChanged();
+    }
+
+
+    private void CloseQuestionModal()
+    {
+        currentQuestionSlot = null;
+        selectedAnswerId = null;
+        StateHasChanged();
+    }
+    private async void UpdateFlowerAndCoins(Flower flower)
+    {
+        try
+        {
+            var connStr = "Server=31.31.197.28;Port=3310;Database=u3126643_flowers_db;User=u3126643_user_app;Password=xxxKKTX6815!;Charset=utf8mb4;SslMode=none;";
+            using var conn = new MySqlConnection(connStr);
+            await conn.OpenAsync();
+
+            var updateHp = new MySqlCommand("UPDATE flowers SET hp = @hp WHERE user_id = @uid AND pot_slot = @slot", conn);
+            updateHp.Parameters.AddWithValue("@hp", flower.Hp);
+            updateHp.Parameters.AddWithValue("@uid", UserSession.CurrentUser.Id);
+            updateHp.Parameters.AddWithValue("@slot", flower.Slot);
+            await updateHp.ExecuteNonQueryAsync();
+
+            var updateCoins = new MySqlCommand("UPDATE users SET coins = @coins WHERE id = @id", conn);
+            updateCoins.Parameters.AddWithValue("@coins", UserSession.CurrentUser.Coins);
+            updateCoins.Parameters.AddWithValue("@id", UserSession.CurrentUser.Id);
+            await updateCoins.ExecuteNonQueryAsync();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"⚠️ DB Update Error: {ex.Message}");
+        }
+    }
+
+    private void SubmitAnswer()
+    {
+        if (currentQuestionSlot is null || !activeQuestions.TryGetValue(currentQuestionSlot.Value, out var question))
+            return;
+
+        var selected = question?.Answers.FirstOrDefault(a => a.Id == selectedAnswerId);
+        if (selected == null)
+            return;
+
+        var flower = UserSession.CurrentUser.Flowers.First(f => f.Slot == currentQuestionSlot.Value);
+
+        if (selected.IsCorrect)
+        {
+            UserSession.CurrentUser.Coins += 5;
+            flower.Hp = Math.Min(flower.Hp + 1, flower.MaxHp);
+        }
+        else
+        {
+            flower.Hp = Math.Max(0, flower.Hp - 1);
+        }
+
+        // 🛠️ Обновление в БД
+        UpdateFlowerAndCoins(flower);
+
+        activeQuestions.Remove(currentQuestionSlot.Value);
+        CloseQuestionModal();
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        questionTimer?.Stop();
+        questionTimer?.Dispose();
+    }
+
 }
 
 <div class="game-wrapper">
     <div class="game-container">
-        <div class="shelf-container">
+@*         <div class="game-field">
             <div class="shelf">
-                <div class="flower-slot"></div>
-                <div class="flower-slot"></div>
-                <div class="flower-slot"></div>
+                @for (int i = 0; i < 3; i++)
+                {
+                    <div class="flower-slot">
+                        <div class="flower-box">
+                            <img src="@GetFlowerImage(i)" class="flower" />
+                        </div>
+                        <div class="pot-box" style="background-image: url('@GetPotImage(i)');"></div>
+                    </div>
+
+                }
             </div>
             <div class="shelf">
-                <div class="flower-slot"></div>
-                <div class="flower-slot"></div>
-                <div class="flower-slot"></div>
+                @for (int i = 3; i < 6; i++)
+                {
+                    <div class="flower-slot">
+                        <div class="flower-box">
+                            <img src="@GetFlowerImage(i)" class="flower" />
+                        </div>
+                        <div class="pot-box" style="background-image: url('@GetPotImage(i)');"></div>
+                    </div>
+
+                }
+            </div>
+        </div> *@
+        <div class="game-field">
+            <div class="shelf">
+                @foreach (var slot in new[] { 0, 1, 2 })
+                {
+                    <div class="flower-slot">
+                        <div class="flower-box">
+                            <img src="@GetFlowerImage(slot)" class="flower" />
+                            @if (activeQuestions.ContainsKey(slot) && activeQuestions[slot] != null)
+                            {
+                                <div class="question-bubble" @onclick="@(() => OpenQuestionModal(slot))">
+                                    ❓
+                                </div>
+                            }
+                        </div>
+                        <div class="pot-box" style="background-image: url('@GetPotImage(slot)');"></div>
+                    </div>
+                }
+            </div>
+            <div class="shelf">
+                @foreach (var slot in new[] { 3, 4, 5 })
+                {
+                    <div class="flower-slot">
+                        <div class="flower-box">
+                            <img src="@GetFlowerImage(slot)" class="flower" />
+                            @if (activeQuestions.ContainsKey(slot) && activeQuestions[slot] != null)
+                            {
+                                <div class="question-bubble" @onclick="@(() => OpenQuestionModal(slot))">
+                                    ❓
+                                </div>
+                            }
+                        </div>
+                        <div class="pot-box" style="background-image: url('@GetPotImage(slot)');"></div>
+                    </div>
+                }
             </div>
         </div>
+
         <div class="money-container">
             <img class="money-icon" src="images/icons/money.png" />
-            <div class="money-amount">123</div>
+            <div class="money-amount">@UserSession.CurrentUser.Coins</div>
         </div>
 
         <div class="slots-panel">
@@ -76,47 +525,152 @@
             <div class="slot-button" @onclick="OpenSettings">
                 <img class="slot-icon" src="images/icons/settings.png" />
             </div>
-@*             <div class="slot-button" @onclick="GoToLogin">
+            @*             <div class="slot-button" @onclick="GoToLogin">
                 <img class="slot-icon" src="images/icons/home.png" />
             </div> *@
         </div>
     </div>
 
-<!-- Модальные окна -->
-@if (showSettings || showShop || showMyFlowers)
-{
-    <div class="modal-overlay1"></div>
-}
+    <!-- Модальные окна -->
+    @if (showSettings || showShop || showMyFlowers)
+    {
+        <div class="modal-overlay"></div>
+    }
 
-@if (showSettings)
-{
-    <div class="modal1">
-        <h3>Настройки</h3>
-        <label>Язык: <select><option>Русский</option><option>English</option></select></label><br />
-        <label>Громкость музыки: <input type="range" min="0" max="100" /></label><br />
-        <label>Громкость эффектов: <input type="range" min="0" max="100" /></label><br />
-        <button @onclick="GoToLogin">Выйти</button>
-        <button @onclick="CloseModals">Закрыть</button>
-    </div>
-}
+    @if (showSettings)
+    {
+        <div class="modal_settings">
+            <h2>Настройки</h2>
 
+            <label>
+                Язык:
+                <select>
+                    <option>Русский</option>
+                    <option>English</option>
+                </select>
+            </label>
 
-        @if (showShop)
-        {
-            <div class="modal1">
-                <h3>Магазин</h3>
-                <p>Здесь будут товары.</p>
+            <label>
+                Громкость музыки:
+                <input type="range" min="0" max="100" />
+            </label>
+
+            <label>
+                Громкость эффектов:
+                <input type="range" min="0" max="100" />
+            </label>
+
+            <div class="modal-buttons">
+                <button @onclick="GoToLogin">Выйти</button>
                 <button @onclick="CloseModals">Закрыть</button>
             </div>
-        }
+        </div>
+    }
 
-        @if (showMyFlowers)
+
+    @if (showShop)
+    {
+        <div class="modal1">
+            <h3>Магазин</h3>
+
+            <div class="shop-scroll-wrapper">
+                <div class="flower-grid">
+                    @foreach (var flower in shopFlowers)
+                    {
+                        <div class="flower-card">
+                            <img src="/images/flowers/@flower.CodeName/standart.png" class="flower-img" />
+                            <div class="flower-name">@flower.DisplayName</div>
+                            <div class="flower-action">
+                                <button class="action-button" @onclick="() => BuyFlower(flower)">
+                                    Купить за @flower.PriceBuy
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <button class="close-full-button" @onclick="CloseModals">
+                Закрыть
+            </button>
+        </div>
+    }
+
+
+
+    @if (showMyFlowers)
+    {
+        <div class="modal1">
+            <h3>Мои цветы</h3>
+            <div class="shop-scroll-wrapper">
+                <div class="flower-grid">
+                    @foreach (var flower in UserSession.CurrentUser.Flowers.OrderBy(f => f.Slot))
+                    {
+                        var state = flower.GetStateImage().Split('/').Last().Replace(".png", "");
+                        int sellPrice = flower.PriceSell;
+
+                        switch (state)
+                        {
+                            case "pre_fall": sellPrice /= 2; break;
+                            case "fall": sellPrice = 0; break;
+                            case "pre_rise": sellPrice = (int)(sellPrice * 1.5); break;
+                            case "rise": sellPrice *= 2; break;
+                        }
+
+                        <div class="flower-card">
+                            <img src="@flower.GetStateImage()" class="flower-img" />
+                            <div class="flower-name">@flower.DisplayName</div>
+                            <div class="flower-state">Состояние: @state</div>
+                            <div class="flower-action">
+                                @if (flower.IsDead)
+                                {
+                                    <button class="action-button throw" @onclick="() => ThrowOutFlower(flower)">
+                                        🗑
+                                        <span>Выкинуть</span>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="action-button" @onclick="() => SellFlower(flower, sellPrice)">
+                                        Продать за @sellPrice
+                                    </button>
+
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button class="close-full-button" @onclick="CloseModals">
+                    Закрыть
+                </button>
+            </div>
+
+        </div>
+    }
+    @if (currentQuestionSlot != null && activeQuestions.ContainsKey(currentQuestionSlot.Value))
+    {
+        var question = activeQuestions[currentQuestionSlot.Value];
+        if (question != null)
         {
-            <div class="modal1">
-                <h3>Мои цветы</h3>
-                <p>Здесь будет список цветов.</p>
-                <button @onclick="CloseModals">Закрыть</button>
+            <div class="question-modal">
+                <h3>Вопрос</h3>
+                <p>@question.Content</p>
+
+                @foreach (var answer in question.Answers)
+                {
+                    <label>
+                        <input type="radio" name="answer" value="@answer.Id"
+                               @onchange="@(() => selectedAnswerId = answer.Id)"
+                               checked="@((selectedAnswerId == answer.Id))" />
+                        @answer.Content
+                    </label>
+                }
+
+                <button class="action-button" @onclick="SubmitAnswer">Ответить</button>
+                <button class="close-full-button" @onclick="CloseQuestionModal">Закрыть</button>
             </div>
         }
+    }
 
 </div>

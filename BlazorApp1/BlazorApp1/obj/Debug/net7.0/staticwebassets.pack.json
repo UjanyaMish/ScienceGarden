@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BlazorApp1.g0t0nq2ttq.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BlazorApp1.29wacyymyv.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
@@ -113,232 +113,236 @@
       "PackagePath": "staticwebassets\\images\\box\\yellow_box.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203241.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203241.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203243.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203243.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155145.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155145.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203245.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203245.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155148.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155148.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203247.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203247.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155152 (2).png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155152 (2).png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203249.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203249.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155152.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155152.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203354.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203354.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155154.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\aloe_medicine\\Без_названия83_Восстановленный_20250503155154.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203356.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203356.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\cactus_physics\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\cactus_physics\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203358.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203358.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203711.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203711.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203400.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203400.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203727.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203727.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203402.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203402.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203739.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203739.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203508.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203508.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203818.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\cactus_physics\\Без_названия83_Восстановленный2_20250502203818.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203510.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203510.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\empty.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\empty.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203512.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203512.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\fern_biology\\fall.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\fern_biology\\fall.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203513.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203513.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\fern_biology\\pre_fall.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\fern_biology\\pre_fall.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203515.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203515.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\fern_biology\\pre_rise.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\fern_biology\\pre_rise.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203711.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203711.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\fern_biology\\rise.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\fern_biology\\rise.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203727.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203727.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\fern_biology\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\fern_biology\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203739.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203739.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\ficus_classic\\fall.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\ficus_classic\\fall.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203750.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203750.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\ficus_classic\\pre_fall.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\ficus_classic\\pre_fall.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502203818.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502203818.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\ficus_classic\\pre_rise.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\ficus_classic\\pre_rise.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502204038.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502204038.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\ficus_classic\\rise.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\ficus_classic\\rise.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502204101.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502204101.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\ficus_classic\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\ficus_classic\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502204105.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502204105.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\mandarin_ecology\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\mandarin_ecology\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502204110.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502204110.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203354.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203354.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный2_20250502204116.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный2_20250502204116.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203356.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203356.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155145.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155145.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203400.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203400.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155148.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155148.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203402.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\mandarin_ecology\\Без_названия83_Восстановленный2_20250502203402.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155150.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155150.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155314.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155314.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155152 (2).png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155152 (2).png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155317.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155317.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155152.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155152.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155321.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155321.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155154.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155154.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155333.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155333.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155314.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155314.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155335.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\onion_chemistry\\Без_названия83_Восстановленный_20250503155335.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155317.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155317.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155321.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155321.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503203416.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503203416.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155333.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155333.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503203444.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503203444.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503155335.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503155335.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204931.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204931.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503165324.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503165324.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204956 (2).png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204956 (2).png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503165335.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503165335.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204956.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\orchid_poetry\\Без_названия83_Восстановленный_20250503204956.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503165343.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503165343.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\palm_climate\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\palm_climate\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503165411.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503165411.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203241.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203241.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503171719.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503171719.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203243.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203243.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192455.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192455.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203247.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203247.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192457.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192457.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203249.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\palm_climate\\Без_названия83_Восстановленный2_20250502203249.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192459.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192459.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\predatory_grass\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\predatory_grass\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192501.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192501.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503192925.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503192925.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192502.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192502.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503193232.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503193232.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503192925.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503192925.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503200235.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503200235.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503193232.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503193232.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503200337.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\predatory_grass\\Без_названия83_Восстановленный_20250503200337.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503195503.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503195503.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\rose_eternal\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\rose_eternal\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503200235.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503200235.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192455.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192455.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503200337.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503200337.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192457.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192457.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503203416.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503203416.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192459.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192459.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503203431.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503203431.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192501.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\rose_eternal\\Без_названия83_Восстановленный_20250503192501.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503203444.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503203444.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\violet_wave\\standart.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\violet_wave\\standart.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503204931.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503204931.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203508.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203508.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503204956 (2).png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503204956 (2).png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203510.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203510.png"
     },
     {
-      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\Без_названия83_Восстановленный_20250503204956.png",
-      "PackagePath": "staticwebassets\\images\\flowers\\Без_названия83_Восстановленный_20250503204956.png"
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203513.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203513.png"
+    },
+    {
+      "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203515.png",
+      "PackagePath": "staticwebassets\\images\\flowers\\violet_wave\\Без_названия83_Восстановленный2_20250502203515.png"
     },
     {
       "Id": "C:\\Users\\hydan\\source\\repos\\BlazorApp1\\BlazorApp1\\wwwroot\\images\\icons\\home.png",
